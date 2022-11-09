@@ -491,7 +491,7 @@ textarea {
 }
 .main{
     position: relative;
-   
+    min-height: 900px;
 }
 .main-arr-left{
     position: absolute;
@@ -531,54 +531,41 @@ textarea {
     padding-top: 0px;
     padding-bottom: 20px;
 }
-.main-cards{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 40px;
-}
+
 .main-card{
-    max-width: 260px;
-    max-height: 500px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    text-align: center;
 }
 .main-card-img{
-    max-width: 260px;
-    max-height: 167px;
+    max-width: 500px;
     border-radius: 20px;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 10px;
-    border: 2px double #ffaa00;
+    border: 5px solid #ffaa00;
+    margin-bottom: 20px;
 }
 .main-card-name,
 .main-cadr-species{
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: 800;
+    font-size: 28px;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .main-card-description{
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: 700;
+    font-size: 24px;
     text-align: justify;
-    margin-top: 10px;
-
+    margin-top: 20px;
+    line-height: 1.2em;
 }
-
-
-
-
-
-
+.main-card-audio{
+    text-align: center;
+}
 .footer{
     width: 100%;
     height: 90px;
@@ -676,4 +663,19 @@ textarea {
     .github-nick{
         display: none;
     }    
+}
+@media screen and (max-width:520px) {
+    .main-card-img{
+        max-width: 290px;
+    }
+    .main-arr-left{
+        top: 450px;
+        left: 10px;
+        max-height: 70px;
+    }
+    .main-arr-right{
+        top: 450px;
+        right: 10px;
+        max-height: 70px;
+    }
 }
