@@ -602,13 +602,13 @@ textarea {
 }
 .descrip-card{
     padding: 0.85rem;
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     display: none;
 }
 .card-img{
     max-width: 200px;
+    max-height: 155px;
 }
 .card-list{
     margin-left: 5px;
