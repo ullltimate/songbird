@@ -4,9 +4,143 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>SongBird</title>
 </head>
 <body>
-    
+    <header class="header">
+        <div class="wrapper">
+            <div class="header-wrapper">
+                <div class="header-logo">
+                    <img src="../../assets/img/logo.png" alt="songdird" class="header-logo logo-img">
+                </div>
+                <nav class="">
+                    <ul class="header-nav header-list">
+                        <li class="header-list-item">
+                            <a href="../start-page/index.html" class="header-link">
+                                Home
+                            </a>
+                        </li>
+                        <li class="header-list-item">
+                            <a href="../game-page/index.html" class="header-link">
+                                Quiz
+                            </a>
+                        </li>
+                        <li class="header-list-item">
+                            <a href="../gallery-page/index.html" class="header-link">
+                                Gallery
+                            </a>
+                        </li>
+                        <img src="../../assets/img/x_close.png" alt="x_close" class="nav_menu_close">
+                    </ul>
+                </nav>
+                <div class="header_burger burger">
+                    <span class="burger_line burger_line_first"></span>
+                    <span class="burger_line burger_line_second"></span>
+                    <span class="burger_line burger_line_third"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="wrapper">
+            <ul class="level-list">
+                <li class="level-item">
+                    <a class="level-link active">
+                        Разминка
+                    </a>
+                </li>
+                <li class="level-item">
+                    <a class="level-link">
+                        Воробьиные
+                    </a>
+                </li>
+                <li class="level-item">
+                    <a class="level-link">
+                        Лесные птицы
+                    </a>
+                </li>
+                <li class="level-item">
+                    <a class="level-link">
+                        Певчие птицы
+                    </a>
+                </li>
+                <li class="level-item">
+                    <a class="level-link">
+                        Хищные птицы
+                    </a>
+                </li>
+                <li class="level-item">
+                    <a class="level-link">
+                        Морские птицы
+                    </a>
+                </li>
+            </ul>
+            <div class="question">
+                <img src="../../assets/img/bird2.png" alt="" class="question-img">
+                <div class="question-bock">
+                    <h3 class="question-title">
+                        ******
+                    </h3>
+                    <audio src="" controls>
+                    </audio>
+                </div>
+            </div>
+            <div class="blocks-game">
+                <div class="options">
+                    <ul class="options-list">
+                        <li class="option-item" id="1">Ворон</li>
+                        <li class="option-item" id="2">Журавль</li>
+                        <li class="option-item" id="3">Ласточка</li>
+                        <li class="option-item" id="4">Козодой</li>
+                        <li class="option-item" id="5">Кукушка</li>
+                        <li class="option-item" id="6">Синица</li>
+                    </ul>
+                </div>
+                <div class="descriptions">
+                    <p class="instruction">
+                        Прослушайте мелодию<br>
+                        Выберите птицу из списка
+                    </p>
+                    <div class="descrip-card">
+                        <img src="" alt="" class="card-img">
+                        <ul class="card-list">
+                            <li class="card-item item-name"></li>
+                            <li class="card-item item-spec"></li>
+                            <li class="card-item item-audio">
+                                <audio src="" controls></audio>
+                            </li>
+                        </ul>
+                        <span class="card-description">
+                            
+                        </span>
+                    </div>
+                </div>
+                <button class="btn-level" disabled>Next Level</button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="wrapper">
+            <div class="footer-wrapper">
+                <div class="footer-logo-rsschool">
+                    <a href="https://rs.school/js/" class="footer-link">
+                        <img src="https://rs.school/images/rs_school_js.svg" alt="rsschool" class="logo-rsschool">
+                    </a>
+                </div>
+                <div class="block-github">
+                    <p class="github-nick">
+                        Created by ullltimate ©2022
+                    </p>
+                    <a href="https://github.com/ullltimate" class="github-link">
+                        <img src="../../assets/img/logo-github.png" alt="github" class="github-logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="main_open"></div>
+    <script src="../../js/burger-menu.js"></script>
+    <script src="../../js/game.js"></script>
 </body>
 </html>
