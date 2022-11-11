@@ -601,7 +601,7 @@ textarea {
     display: block;
 }
 .descrip-card{
-    padding: 0.85rem;
+    padding: 0.2rem;
     flex-wrap: wrap;
     justify-content: center;
     display: none;
