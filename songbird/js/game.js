@@ -89,10 +89,14 @@ function random(min, max){
 var o=1;
 var j=1;
 btnNextLevel.addEventListener('click', () => {
-    activeLevel(levelList);
-    levelOptions(optionsItemArray, birdsData[j]);
-    randomQuestion(birdsData[j]);
-    j++
+    if (o>5){
+        rezulsPage();
+    } else {
+        activeLevel(levelList);
+        levelOptions(optionsItemArray, birdsData[j]);
+        randomQuestion(birdsData[j]);
+        j++
+    }
 })
 function activeLevel(arr){
     for (var i=0; i<arr.length; i++){
@@ -109,9 +113,6 @@ function activeLevel(arr){
     o++;
 }
 console.log(document.querySelector('.active'))
-function nextLevel(){
-
-}
 
 var optionsItemArray = document.querySelectorAll('.option-item');
 console.log(optionsItemArray)
@@ -128,4 +129,26 @@ function levelOptions(optArray, array){
         instruction.style.display = 'block';
         descripCard.style.display = 'none';
     }
+}
+
+var cleanElement = document.querySelector('.main .wrapper');
+console.log(cleanElement)
+
+function rezulsPage(){
+    cleanElement.innerHTML = '';
+    var rezultTitle = document.createElement('h1');
+    cleanElement.append(rezultTitle);
+    rezultTitle.innerText = 'ПОЗДРАВЛЯЕМ!';
+    rezultTitle.className = 'result-title';
+    var rezultText = document.createElement('p');
+    cleanElement.append(rezultText);
+    rezultText.className = 'result-text';
+    rezultText.innerHTML = 'Вы прошли викторину и набрали <a class="point">0</a> из 30 возможных баллов';
+    var btnNewGame = document.createElement('button');
+    cleanElement.append(btnNewGame);
+    btnNewGame.className = 'btn-game';
+    btnNewGame.innerText = 'Попробовать еще раз!';
+    btnNewGame.addEventListener('click', () => {
+        document.location.reload();
+    })
 }
