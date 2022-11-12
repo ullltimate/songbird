@@ -16,6 +16,8 @@ var questionImage = document.querySelector('.question-img');
 var btnNextLevel = document.querySelector('.btn-level');
 var optionsItemArray = document.querySelectorAll('.option-item');
 console.log(optionsItemArray);
+var points = document.querySelector('.points');
+var count = 0;
 
 for (var i=0; i<levelList.length; i++){
     if(levelList[i].classList.contains('active') === true){
@@ -53,8 +55,11 @@ function check(clickName, questName, clickElem){
         questionImage.src = questionImg;
         btnNextLevel.disabled = false;
         btnNextLevel.classList.add('win');
+        count += 5;
+        points.innerHTML = count;
     } else {
         clickElem.classList.add('lose');
+        count -=1;
     }
 }
 
@@ -138,6 +143,7 @@ var cleanElement = document.querySelector('.main .wrapper');
 console.log(cleanElement)
 
 function rezulsPage(){
+    var countPoint = points.innerHTML;
     cleanElement.innerHTML = '';
     var rezultTitle = document.createElement('h1');
     cleanElement.append(rezultTitle);
@@ -147,6 +153,8 @@ function rezulsPage(){
     cleanElement.append(rezultText);
     rezultText.className = 'result-text';
     rezultText.innerHTML = 'Вы прошли викторину и набрали <a class="point">0</a> из 30 возможных баллов';
+    var pointElem = document.querySelector('.point');
+    pointElem.innerHTML = countPoint;
     var btnNewGame = document.createElement('button');
     cleanElement.append(btnNewGame);
     btnNewGame.className = 'btn-game';
