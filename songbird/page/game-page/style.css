@@ -758,6 +758,12 @@ textarea {
         height: 100vh;
         width: 100%;
     }
+    .options{
+        width: 100%;
+    }
+    .descriptions{
+        width: 100%;
+    }
 }
 @media screen and (max-width:633px) {
     .main-backg-img2{

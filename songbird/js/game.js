@@ -14,6 +14,8 @@ var questionImg;
 var questionTitle = document.querySelector('.question-title');
 var questionImage = document.querySelector('.question-img');
 var btnNextLevel = document.querySelector('.btn-level');
+var optionsItemArray = document.querySelectorAll('.option-item');
+console.log(optionsItemArray);
 
 for (var i=0; i<levelList.length; i++){
     if(levelList[i].classList.contains('active') === true){
@@ -39,9 +41,12 @@ function randomQuestion(array){
 console.log(questionAudio);
 console.log(questionName);
 
-
-
 function check(clickName, questName, clickElem){
+    for (var i=0; i<optionsItemArray.length; i++){
+        if (optionsItemArray[i].classList.contains('win')){
+            return;
+        }
+    }
     if(clickName === questName){
         clickElem.classList.add('win');
         questionTitle.innerText = questionName;
@@ -114,8 +119,6 @@ function activeLevel(arr){
 }
 console.log(document.querySelector('.active'))
 
-var optionsItemArray = document.querySelectorAll('.option-item');
-console.log(optionsItemArray)
 
 function levelOptions(optArray, array){
     for (var i=0; i<optArray.length; i++){
