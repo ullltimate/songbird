@@ -5,6 +5,9 @@ console.log(warmUpArray);
 var birdsDataFlat = birdsData.flat();
 console.log(birdsDataFlat);
 
+var audioWin = document.querySelector('.audio-win');
+var audioError = document.querySelector('.audio-error');
+
 var optionsList = document.querySelector('.options-list');
 var levelList = document.querySelectorAll('.level-link');
 console.log(levelList);
@@ -57,9 +60,12 @@ function check(clickName, questName, clickElem){
         btnNextLevel.classList.add('win');
         count += 5;
         points.innerHTML = count;
+        audioWin.play();
+        questionAudio.pause();
     } else {
         clickElem.classList.add('lose');
         count -=1;
+        audioError.play();
     }
 }
 
