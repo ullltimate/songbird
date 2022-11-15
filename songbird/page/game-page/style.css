@@ -559,11 +559,7 @@ textarea {
     font-weight: 500;
     font-size: 18px;
 }
-.option-item::before{
-    content: '•';
-    margin-right: 0.5em;
-    color: #000;
-}
+
 .option-item:hover{
     background: #ff9100;
 }
@@ -675,6 +671,14 @@ textarea {
     font-size: 24px;
     color: #000;
     text-align: right;
+}
+.item-circ{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #000;
+    display: inline-block;
+    margin-right: 10px;
 }
 
 

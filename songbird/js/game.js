@@ -46,7 +46,7 @@ function randomQuestion(array){
 console.log(questionAudio);
 console.log(questionName);
 
-function check(clickName, questName, clickElem){
+function check(clickName, questName, clickElem, circ){
     for (var i=0; i<optionsItemArray.length; i++){
         if (optionsItemArray[i].classList.contains('win')){
             return;
@@ -62,18 +62,20 @@ function check(clickName, questName, clickElem){
         points.innerHTML = count;
         audioWin.play();
         questionAudio.pause();
+        circ.style.background = 'green';
     } else {
         clickElem.classList.add('lose');
         count -=1;
         audioError.play();
+        circ.style.background = 'red';
     }
 }
 
 optionsList.addEventListener('click', (event) => {
     var target = event.target;
-    console.log(target.innerHTML);
-    changeDidcriptions(target.innerHTML, birdsDataFlat);
-    check(target.innerHTML, questionName, target);
+    console.log(target.firstChild);
+    changeDidcriptions(target.innerText, birdsDataFlat);
+    check(target.innerText, questionName, target, target.firstChild);
 })
 
 var instruction = document.querySelector('.instruction');
@@ -133,7 +135,8 @@ console.log(document.querySelector('.active'))
 
 function levelOptions(optArray, array){
     for (var i=0; i<optArray.length; i++){
-        optArray[i].innerHTML = array[i].name;
+        optArray[i].innerHTML = `<div class="item-circ"></div>${array[i].name}`;
+
         if (optArray[i].classList.contains('win') || optArray[i].classList.contains('lose')){
             optArray[i].classList.remove('win');
             optArray[i].classList.remove('lose');
