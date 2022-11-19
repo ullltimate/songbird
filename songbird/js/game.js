@@ -1,5 +1,7 @@
 import birdsData from '../js/birds.js';
 
+console.log(localStorage.getItem('lang'));
+
 var warmUpArray = birdsData[0];
 var birdsDataFlat = birdsData.flat();
 
