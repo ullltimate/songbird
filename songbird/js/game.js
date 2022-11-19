@@ -1,16 +1,13 @@
 import birdsData from '../js/birds.js';
-console.log(birdsData);
+
 var warmUpArray = birdsData[0];
-console.log(warmUpArray);
 var birdsDataFlat = birdsData.flat();
-console.log(birdsDataFlat);
+
 
 var audioWin = document.querySelector('.audio-win');
 var audioError = document.querySelector('.audio-error');
-
 var optionsList = document.querySelector('.options-list');
 var levelList = document.querySelectorAll('.level-link');
-console.log(levelList);
 var questionAudio = document.querySelector('.question-bock>audio');
 var questionName;
 var questionImg;
@@ -18,7 +15,6 @@ var questionTitle = document.querySelector('.question-title');
 var questionImage = document.querySelector('.question-img');
 var btnNextLevel = document.querySelector('.btn-level');
 var optionsItemArray = document.querySelectorAll('.option-item');
-console.log(optionsItemArray);
 var points = document.querySelector('.points');
 var count = 0;
 
@@ -30,7 +26,6 @@ for (var i=0; i<levelList.length; i++){
 
 function randomQuestion(array){
     var randomId = random(1,6);
-    console.log(randomId);
     questionTitle.innerHTML = '******';
     questionImage.src = "../../assets/img/bird2.png";
     for (var i=0; i<array.length; i++){
@@ -42,9 +37,6 @@ function randomQuestion(array){
         }
     }
 }
-
-console.log(questionAudio);
-console.log(questionName);
 
 function check(clickName, questName, clickElem, circ){
     for (var i=0; i<optionsItemArray.length; i++){
@@ -73,7 +65,6 @@ function check(clickName, questName, clickElem, circ){
 
 optionsList.addEventListener('click', (event) => {
     var target = event.target;
-    console.log(target.firstChild);
     changeDidcriptions(target.innerText, birdsDataFlat);
     check(target.innerText, questionName, target, target.firstChild);
 })
@@ -84,7 +75,7 @@ var cardImgBird = document.querySelector('.card-img');
 var cardNameBird = document.querySelector('.item-name');
 var cardSpecBird = document.querySelector('.item-spec');
 var cardAudioBird = document.querySelector('.item-audio>audio');
-var cardDescrirtion =document.querySelector('.card-description');
+var cardDescrirtion = document.querySelector('.card-description');
 
 function changeDidcriptions(name, array){
     instruction.style.display = 'none';
@@ -100,12 +91,14 @@ function changeDidcriptions(name, array){
         }
     }
 }
+
 function random(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 var o=1;
 var j=1;
+
 btnNextLevel.addEventListener('click', () => {
     if (o>5){
         rezulsPage();
@@ -116,12 +109,12 @@ btnNextLevel.addEventListener('click', () => {
         j++
     }
 })
+
 function activeLevel(arr){
     for (var i=0; i<arr.length; i++){
         if(arr[i].classList.contains('active')){
             arr[i].classList.remove('active');
             arr[o].classList.add('active');
-            console.log(o);
         }
     }
     if(btnNextLevel.classList.contains('win')){
@@ -130,8 +123,6 @@ function activeLevel(arr){
     }
     o++;
 }
-console.log(document.querySelector('.active'))
-
 
 function levelOptions(optArray, array){
     for (var i=0; i<optArray.length; i++){
@@ -149,7 +140,6 @@ function levelOptions(optArray, array){
 }
 
 var cleanElement = document.querySelector('.main .wrapper');
-console.log(cleanElement)
 
 function rezulsPage(){
     var countPoint = points.innerHTML;
