@@ -1,9 +1,14 @@
 import birdsData from '../js/birds.js';
-
+import i18Object from '../js/translate-game-page.js';
+console.log(i18Object);
+import birdsDataEn from '../js/birdsEn.js';
+console.log(birdsDataEn);
 console.log(localStorage.getItem('lang'));
 
 var warmUpArray = birdsData[0];
+var warmUpArrayEn = birdsDataEn[0];
 var birdsDataFlat = birdsData.flat();
+var birdsDataFlatEn = birdsDataEn.flat();
 
 
 var audioWin = document.querySelector('.audio-win');
@@ -20,9 +25,29 @@ var optionsItemArray = document.querySelectorAll('.option-item');
 var points = document.querySelector('.points');
 var count = 0;
 
+var en = i18Object.en;
+function getTranslate(lang){
+    var arrData = document.querySelectorAll('[data-i18n]');
+    for (var i=0; i<arrData.length; i++){
+        console.log(arrData[i].className === 'option-item')
+        if(arrData[i].className === 'option-item'){
+            arrData[i].innerHTML = `<div class="item-circ"></div>${Object.values(lang)[i]}`
+        } else {
+            arrData[i].textContent = Object.values(lang)[i];
+        }
+    }
+}
+if(localStorage.getItem('lang') === 'en'){
+    getTranslate(en);
+}
+
 for (var i=0; i<levelList.length; i++){
     if(levelList[i].classList.contains('active') === true){
-        randomQuestion(warmUpArray);
+        if(localStorage.getItem('lang') === 'en'){
+            randomQuestion(warmUpArrayEn);
+        } else {
+            randomQuestion(warmUpArray);
+        }
     }
 }
 
@@ -67,8 +92,13 @@ function check(clickName, questName, clickElem, circ){
 
 optionsList.addEventListener('click', (event) => {
     var target = event.target;
-    changeDidcriptions(target.innerText, birdsDataFlat);
-    check(target.innerText, questionName, target, target.firstChild);
+    if(localStorage.getItem('lang') === 'en'){
+        changeDidcriptions(target.innerText, birdsDataFlatEn);
+        check(target.innerText, questionName, target, target.firstChild);
+    } else {
+        changeDidcriptions(target.innerText, birdsDataFlat);
+        check(target.innerText, questionName, target, target.firstChild);
+    }
 })
 
 var instruction = document.querySelector('.instruction');
@@ -105,10 +135,17 @@ btnNextLevel.addEventListener('click', () => {
     if (o>5){
         rezulsPage();
     } else {
-        activeLevel(levelList);
-        levelOptions(optionsItemArray, birdsData[j]);
-        randomQuestion(birdsData[j]);
-        j++
+        if(localStorage.getItem('lang') === 'en'){
+            activeLevel(levelList);
+            levelOptions(optionsItemArray, birdsDataEn[j]);
+            randomQuestion(birdsDataEn[j]);
+            j++
+        } else{
+            activeLevel(levelList);
+            levelOptions(optionsItemArray, birdsData[j]);
+            randomQuestion(birdsData[j]);
+            j++
+        }
     }
 })
 
@@ -144,23 +181,45 @@ function levelOptions(optArray, array){
 var cleanElement = document.querySelector('.main .wrapper');
 
 function rezulsPage(){
-    var countPoint = points.innerHTML;
-    cleanElement.innerHTML = '';
-    var rezultTitle = document.createElement('h1');
-    cleanElement.append(rezultTitle);
-    rezultTitle.innerText = 'ПОЗДРАВЛЯЕМ!';
-    rezultTitle.className = 'result-title';
-    var rezultText = document.createElement('p');
-    cleanElement.append(rezultText);
-    rezultText.className = 'result-text';
-    rezultText.innerHTML = 'Вы прошли викторину и набрали <a class="point">0</a> из 30 возможных баллов';
-    var pointElem = document.querySelector('.point');
-    pointElem.innerHTML = countPoint;
-    var btnNewGame = document.createElement('button');
-    cleanElement.append(btnNewGame);
-    btnNewGame.className = 'btn-game';
-    btnNewGame.innerText = 'Попробовать еще раз!';
-    btnNewGame.addEventListener('click', () => {
-        document.location.reload();
-    })
+    if(localStorage.getItem('lang') === 'en'){
+        var countPoint = points.innerHTML;
+        cleanElement.innerHTML = '';
+        var rezultTitle = document.createElement('h1');
+        cleanElement.append(rezultTitle);
+        rezultTitle.innerText = 'CONGRATULATIONS!';
+        rezultTitle.className = 'result-title';
+        var rezultText = document.createElement('p');
+        cleanElement.append(rezultText);
+        rezultText.className = 'result-text';
+        rezultText.innerHTML = 'You passed the quiz and scored <a class="point">0</a> out of 30 possible points';
+        var pointElem = document.querySelector('.point');
+        pointElem.innerHTML = countPoint;
+        var btnNewGame = document.createElement('button');
+        cleanElement.append(btnNewGame);
+        btnNewGame.className = 'btn-game';
+        btnNewGame.innerText = 'Try again!';
+        btnNewGame.addEventListener('click', () => {
+            document.location.reload();
+        })
+    } else {
+        var countPoint = points.innerHTML;
+        cleanElement.innerHTML = '';
+        var rezultTitle = document.createElement('h1');
+        cleanElement.append(rezultTitle);
+        rezultTitle.innerText = 'ПОЗДРАВЛЯЕМ!';
+        rezultTitle.className = 'result-title';
+        var rezultText = document.createElement('p');
+        cleanElement.append(rezultText);
+        rezultText.className = 'result-text';
+        rezultText.innerHTML = 'Вы прошли викторину и набрали <a class="point">0</a> из 30 возможных баллов';
+        var pointElem = document.querySelector('.point');
+        pointElem.innerHTML = countPoint;
+        var btnNewGame = document.createElement('button');
+        cleanElement.append(btnNewGame);
+        btnNewGame.className = 'btn-game';
+        btnNewGame.innerText = 'Попробовать еще раз!';
+        btnNewGame.addEventListener('click', () => {
+            document.location.reload();
+        })
+    }
 }
