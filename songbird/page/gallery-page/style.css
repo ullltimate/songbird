@@ -536,7 +536,7 @@ textarea {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 50px;
+    min-height: 900px;
     text-align: center;
 }
 .main-card-img{
@@ -677,5 +677,8 @@ textarea {
         top: 450px;
         right: 10px;
         max-height: 70px;
+    }
+    .main-card{
+        min-height: 700px;
     }
 }

@@ -537,6 +537,7 @@ textarea {
     padding-bottom: 20px;
     text-indent: 30px;
     line-height: 1.2em;
+    text-align: justify;
 }
 .main-desc-text:last-child{
     text-align: center;
@@ -546,6 +547,7 @@ textarea {
 .main-description{
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 .main-desc-list-item{
     font-family: 'Roboto';
@@ -568,7 +570,7 @@ textarea {
     width: 300px;
     background: #ffaa00;
     border: none;
-    border-radius: 50px;
+    border-radius: 20px;
     font-family: 'Sansita Swashed';
     font-style: normal;
     font-weight: 700;
